@@ -4,8 +4,11 @@
     <div class="col">
       <%= link_to "< Companies", companies_path %>
     </div>
-    <div class="col text-right">
+    <div class="col-1 text-right">
       <%= link_to "Edit", edit_company_path %>
+    </div>
+    <div class="col-1 text-right">
+      <%= link_to "Delete", company_path , method: :delete, data: {confirm: "Are you sure want to delete this company?"}, class: "text-danger" %>
     </div>
   </div>
   <div class="bg-success">
