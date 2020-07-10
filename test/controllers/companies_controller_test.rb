@@ -69,10 +69,8 @@ class CompaniesControllerTest < ApplicationSystemTestCase
       find_link('Delete', href: "/companies/#{company_to_destroy.id}").click
     end
 
-    # View assertions
     assert_text 'Company deletion successful'
 
-    # DB assertions
     assert_not Company.exists?(company_to_destroy.id)
     assert_not_equal company_count_before, Company.count
   end

@@ -13,7 +13,7 @@ class Company < ApplicationRecord
 
   def check_and_set_city_state
     place_details = ZipCodes.identify(zip_code)
-    if !place_details.nil?
+    if place_details.present?
 	  self.city = place_details[:city]
 	  self.state = place_details[:state_code]
 	  return
