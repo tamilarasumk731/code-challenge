@@ -1,32 +1,25 @@
 class Company < ApplicationRecord
   has_rich_text :description
 
-
-  validate :set_city_state
-  validate :check_email
+  validate :check_email, if: proc {|company| company.email.present? }
+  validate :check_and_set_city_state
 
   def check_email
-  	return if email.blank?
+  	domain_pattern = /\b.+@getmainstreet\.com\z/
+  	return if URI::MailTo::EMAIL_REGEXP.match?(email) && domain_pattern.match?(email)
 
-    if email =~ (/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
-    	domain = email.split('@').last
-        if domain != "getmainstreet.com"
-          errors.add(:email, "The domain #{domain} does not acceptable. Please enter a valid email address.")
-        end
-    else
-      errors.add(:email, 'Invalid email address.')
-    end
+    errors.add(:email, 'invalid! Email address must have @getmainstreet.com')
   end
 
 
-  def set_city_state
+  def check_and_set_city_state
     place_details = ZipCodes.identify(zip_code)
     if !place_details.nil?
 	  self.city = place_details[:city]
 	  self.state = place_details[:state_code]
 	  return
 	else
-		errors.add(:zipcode, 'Invalid!')
+		errors.add(:zipcode, 'invalid!')
 	end
   end
 
