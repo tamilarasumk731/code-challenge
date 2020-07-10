@@ -11,7 +11,7 @@
             <%= company.name %>
           </a>
           <a href="<%= company_path(company) %>" data-method="delete" data-confirm="Are you sure want to delete this company?">
-              <button type="button" class="close text-danger" aria-label="Close">
+              <button id="<%= company.id%>" type="button" class="close text-danger" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </a>
