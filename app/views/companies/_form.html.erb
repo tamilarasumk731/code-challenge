@@ -4,8 +4,8 @@
       <div class="alert alert-danger" role="alert">
         <h4><%= pluralize(@company.errors.count, "error") %> :</h2>
         <ul>
-          <% @company.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+          <% @company.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
           <% end %>
         </ul>
       </div>
