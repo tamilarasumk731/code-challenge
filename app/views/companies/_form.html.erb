@@ -1,5 +1,15 @@
 <div class="py-5">
   <%= form_for @company do |f| %>
+    <% if @company.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <h4><%= pluralize(@company.errors.count, "error") %> :</h2>
+        <ul>
+          <% @company.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <div class="row my-lg-3">
       <div class="col-lg-3">

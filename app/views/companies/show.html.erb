@@ -4,15 +4,18 @@
     <div class="col">
       <%= link_to "< Companies", companies_path %>
     </div>
-    <div class="col text-right">
+    <div class="col-1 text-right">
       <%= link_to "Edit", edit_company_path %>
+    </div>
+    <div class="col-1 text-right">
+      <%= link_to "Delete", company_path , method: :delete, data: {confirm: "Are you sure want to delete this company?"}, class: "text-danger" %>
     </div>
   </div>
   <div class="bg-success">
     <div class="container p-5 text-white">
       <h1><%= @company.name %></h1>
-      <h3>City, State</h3>
-      <pre>☝️ This is what needs to be udpated. Examples: Atlanta, GA or Nashvile, TN</pre>
+      <h3><%= "#{@company.city || 'City'}, #{@company.state || 'State'}" %></h3>
+      <pre>☝️ Here the city and state are updated based on the zipcode</pre>
     </div>
   </div>
   <% if @company.description.present? %>
