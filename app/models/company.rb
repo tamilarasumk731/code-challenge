@@ -11,7 +11,6 @@ class Company < ApplicationRecord
     errors.add(:email, 'invalid! Email address must have @getmainstreet.com')
   end
 
-
   def check_and_set_city_state
     place_details = ZipCodes.identify(zip_code)
     if !place_details.nil?

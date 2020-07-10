@@ -14,7 +14,7 @@
   <div class="bg-success">
     <div class="container p-5 text-white">
       <h1><%= @company.name %></h1>
-      <h3><%= @company.city %>, <%= @company.state %></h3>
+      <h3><%= "#{@company.city || 'City'}, #{@company.state || 'State'}" %></h3>
       <pre>☝️ Here the city and state are updated based on the zipcode</pre>
     </div>
   </div>
