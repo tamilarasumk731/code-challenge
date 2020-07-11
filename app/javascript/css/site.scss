@@ -1,2 +1,9 @@
 @import "trix/dist/trix";
 @import "~bootstrap/scss/bootstrap.scss";
+
+.div-clickable {
+    display: inline-block;
+    height: 100%;
+    width: 94%;
+    text-decoration: none;
+}

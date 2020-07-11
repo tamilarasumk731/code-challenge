@@ -7,7 +7,7 @@
     <ul class="list-group my-5">
       <% @companies.each do |company| %>
         <div class="row list-group-item list-group-item-action">
-          <a href="<%= company_path(company) %>" class="list-group-item-action">
+          <a href="<%= company_path(company) %>" class="list-group-item-action div-clickable">
             <%= company.name %>
           </a>
           <a href="<%= company_path(company) %>" data-method="delete" data-confirm="Are you sure want to delete this company?">
