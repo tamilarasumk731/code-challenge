@@ -65,9 +65,8 @@ class CompaniesControllerTest < ApplicationSystemTestCase
 
     visit company_path(company_to_destroy)
 
-    accept_confirm do
-      find_link('Delete', href: "/companies/#{company_to_destroy.id}").click
-    end
+    find_link('Delete', href: "/companies/#{company_to_destroy.id}").click
+    click_button "Confirm"
 
     assert_text 'Company deletion successful'
 
@@ -81,9 +80,8 @@ class CompaniesControllerTest < ApplicationSystemTestCase
 
     visit companies_path
 
-    accept_confirm do
-      find("button[id=\"#{company_to_delete.id}\"]").click
-    end
+    find("button[id=\"#{company_to_delete.id}\"]").click
+    click_button "Confirm"
 
     assert_text 'Company deletion successful'
 

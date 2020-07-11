@@ -11,6 +11,8 @@ require("channels");
 require("trix");
 require("@rails/actiontext");
 
+require('data-confirm-modal')
+
 import "bootstrap";
 import "css/site";
 
