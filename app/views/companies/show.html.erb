@@ -8,7 +8,7 @@
       <%= link_to "Edit", edit_company_path %>
     </div>
     <div class="col-1 text-right">
-      <%= link_to "Delete", company_path , method: :delete, data: {confirm: "Are you sure want to delete this company?"}, class: "text-danger" %>
+      <%= link_to "Delete", company_path , method: :delete, data: {title: "Delete Confirmation", confirm: "Are you sure want to delete \"#{@company.name}\" company?"}, class: "text-danger" %>
     </div>
   </div>
   <div class="bg-success">
